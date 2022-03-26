@@ -14,14 +14,19 @@
 @import 'components/error404.scss';
 @import 'components/landing-page.scss';
 @import 'components/burger-menu.scss';
+@import 'components/crypto-card.scss';
+@import 'components/form.scss';
 
 
 @import url('https://fonts.googleapis.com/css?family=Aldrich');
 @import url('https://fonts.googleapis.com/css?family=Michroma');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Arabic');
+@import url('https://fonts.googleapis.com/css?family=Assistant');
 
 
 html {
+  height: auto;
+  width: auto;
   padding: 0;
   background-image: url("../assets/backgrounds/cyber.jpg");
 }
@@ -38,7 +43,7 @@ button {
 
 html::-webkit-scrollbar {
   width: 10px;
-  background-color: var(--colorPrimaryVeryLight); 
+  background-color: var(--colorPrimary100); 
 }
 
 html::-webkit-scrollbar-thumb {
@@ -52,7 +57,7 @@ body {
             linear-gradient(127deg, rgba(0, 0, 0, 0.247), rgba(0, 0, 0, 0.2) 40%),
             linear-gradient(336deg, rgba(100, 26, 185, 0.562), rgba(0, 0, 0, 0.3) 40%);
   // background-color: rgba(rgb(22, 22, 22), 0.6);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 * {
@@ -77,7 +82,7 @@ h2 {
   min-height: 100vh;
   color: white;
   margin: 0 40px;
-  font-family: 'Michroma';
+  font-family: 'Assistant';
   display: flex;
   flex-direction: column;
 

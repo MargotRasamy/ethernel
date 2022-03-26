@@ -3,8 +3,6 @@ import React, { Component } from "react";
 //   Link
 // } from "react-router-dom";
 
-import { useState } from "react";
-
 import ButtonLink from './ButtonLink';
 import SimpleLink from './SimpleLink';
 import BurgerMenu from "./BurgerMenu";

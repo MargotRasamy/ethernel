@@ -1,24 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Michroma');
 .button {
     padding: 10px 30px;
     border-radius: 4px;
     
-    &-color {
-        background-color: rgb(98, 3, 206);
-        &:hover {
-            background-color: rgb(144, 49, 252);
+
+    &:hover {
+        background-color: rgba(133, 98, 230, 0.445);
+    }
+    @include regular {
+        &-color {
+            background-color: var(--colorPrimary);
+            &:hover {
+                background-color: rgb(144, 49, 252);
+            }
+        }
+    }
+    @include large {
+        &-color {
+            background-color: var(--colorPrimary);
+            &:hover {
+                background-color: rgb(144, 49, 252);
+            }
         }
     }
 
     // Simple buttons
     &-simple {
         &.button-lg {
+            font-family: Michroma;
             font-size: 24px;
+            margin: var(--spaceL) 0;
         }
         &.button-md {
             font-size: 20px;
+            margin: var(--spaceM) 0;
         }
         &.button-sm {
             font-size: 16px;
+            margin: var(--spaceS) 0;
         }
     }
 }

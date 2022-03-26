@@ -1,8 +1,8 @@
 import React from "react";
 
-const ButtonSimple = ({color, text, wrapperClass, onClickEvent}) => {
+const ButtonSimple = ({type, color, text, wrapperClass, onClickEvent, size}) => {
     return (
-        <button type="button" onClick={onClickEvent} className={'button button-simple ' + 'button-' +color + ' ' + wrapperClass}>
+        <button type={type} onClick={onClickEvent} className={'button button-simple ' + 'button-' +color + ' button-' + size + ' ' + wrapperClass}>
            { text }
         </button>
     )
