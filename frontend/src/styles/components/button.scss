@@ -8,4 +8,17 @@
             background-color: rgb(144, 49, 252);
         }
     }
+
+    // Simple buttons
+    &-simple {
+        &.button-lg {
+            font-size: 24px;
+        }
+        &.button-md {
+            font-size: 20px;
+        }
+        &.button-sm {
+            font-size: 16px;
+        }
+    }
 }

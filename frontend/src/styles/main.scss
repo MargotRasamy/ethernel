@@ -13,6 +13,7 @@
 @import 'components/hero.scss';
 @import 'components/error404.scss';
 @import 'components/landing-page.scss';
+@import 'components/burger-menu.scss';
 
 
 @import url('https://fonts.googleapis.com/css?family=Aldrich');
@@ -23,6 +24,16 @@
 html {
   padding: 0;
   background-image: url("../assets/backgrounds/cyber.jpg");
+}
+
+button {
+    background: none;
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 
 html::-webkit-scrollbar {

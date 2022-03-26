@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Advent+Pro');
 @import url('https://fonts.googleapis.com/css?family=Assistant');
-
+@import "../helpers/medias.scss";
 .header {
     padding: 10px 0;
     font-family: 'Assistant';
@@ -21,6 +21,20 @@
             color: inherit;
             margin: 0 6px;
         }
+        @include small {
+            position: absolute;
+            z-index:1;
+            top: 65px;
+            right:var(--marginsLayout);
+            width:50%;
+            flex-direction: column;
+            
+        }
+        
+        &.closed {
+            @include small {
+                display: none;  
+            }  
+        }
     }
-    
 }
