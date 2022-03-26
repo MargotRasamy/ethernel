@@ -1,11 +1,10 @@
-import './header.scss';
 import React from "react";
 // import {
 //   Link
 // } from "react-router-dom";
 
-import Button from '../Button/Button';
-import SimpleLink from '../SimpleLink/SimpleLink';
+import Button from './Button';
+import SimpleLink from './SimpleLink';
 const Header = () => {
     return (
         <div className='header'>

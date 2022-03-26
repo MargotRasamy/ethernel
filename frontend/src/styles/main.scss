@@ -1,3 +1,20 @@
+// Import helpers files
+@import 'helpers/colors.scss';
+@import 'helpers/medias.scss';
+@import 'helpers/misc.scss';
+@import 'helpers/spaces.scss';
+@import 'helpers/fonts.scss';
+@import 'helpers/reset.scss';
+
+// Import helpers files
+@import 'components/button.scss';
+@import 'components/header.scss';
+@import 'components/simple-link.scss';
+@import 'components/hero.scss';
+@import 'components/error404.scss';
+@import 'components/landing-page.scss';
+
+
 @import url('https://fonts.googleapis.com/css?family=Aldrich');
 @import url('https://fonts.googleapis.com/css?family=Michroma');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Arabic');
@@ -5,8 +22,18 @@
 
 html {
   padding: 0;
-  background-image: url("./assets/backgrounds/cyber.jpg");
+  background-image: url("../assets/backgrounds/cyber.jpg");
 }
+
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--colorPrimaryVeryLight); 
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--colorPrimary); 
+}
+
 body {
   margin:0;
   padding: 0;
@@ -38,11 +65,20 @@ h2 {
   padding: 5px 0;
   min-height: 100vh;
   color: white;
-  margin: 0 140px;
+  margin: 0 40px;
   font-family: 'Michroma';
-  
+  display: flex;
+  flex-direction: column;
 
   @media screen and (max-width: 768px) {
     margin: 0 20px;
+  }
+
+  @media screen and (max-width: 1240px) and (min-width: 769px) {
+    margin: 0 40px;
+  }
+
+  @media screen and (min-width: 1300px) {
+    margin: 0 100px;
   }
 }

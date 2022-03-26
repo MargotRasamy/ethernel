@@ -1,4 +1,3 @@
-import './simple-link.scss'
 import { NavLink } from "react-router-dom";
 
 const SimpleLink = ({color, text, toPath, wrapperClass}) => {

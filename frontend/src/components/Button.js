@@ -1,6 +1,5 @@
-import './button.scss';
 import React from "react";
-import App from '../../App'
+import App from '../App'
 import { NavLink } from "react-router-dom";
 
 const Button = ({color, text, toPath, wrapperClass}) => {
