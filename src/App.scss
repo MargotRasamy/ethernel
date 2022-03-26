@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Aldrich');
+@import url('https://fonts.googleapis.com/css?family=Michroma');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Arabic');
+
+
+html {
+  padding: 0;
+  background-image: url("./assets/backgrounds/cyber.jpg");
+}
+body {
+  margin:0;
+  padding: 0;
+  background: linear-gradient(217deg, rgba(88, 1, 160, 0.521), rgba(26, 26, 26, 0.1) 70.71%),
+            linear-gradient(127deg, rgba(0, 0, 0, 0.247), rgba(0, 0, 0, 0.2) 40%),
+            linear-gradient(336deg, rgba(100, 26, 185, 0.562), rgba(0, 0, 0, 0.3) 40%);
+  // background-color: rgba(rgb(22, 22, 22), 0.6);
+  backdrop-filter: blur(10px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h3, h4, h5, h6, .ethernel-font {
+  // margin: 0;
+  font-family: 'Michroma';
+}
+h2 {
+  font-family: 'Michroma';
+}
+
+.App {
+  padding: 5px 0;
+  min-height: 100vh;
+  color: white;
+  margin: 0 140px;
+  font-family: 'Michroma';
+  
+
+  @media screen and (max-width: 768px) {
+    margin: 0 20px;
+  }
+}

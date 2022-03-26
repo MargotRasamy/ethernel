@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro');
+@import url('https://fonts.googleapis.com/css?family=Assistant');
+
+.header {
+    padding: 10px 0;
+    font-family: 'Assistant';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        font-size: 22px;
+    }
+    
+    nav {
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        a {
+            text-decoration: none;
+            color: inherit;
+            margin: 0 10px;
+        }
+    }
+    
+}
