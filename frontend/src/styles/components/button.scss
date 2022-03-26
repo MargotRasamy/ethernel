@@ -3,23 +3,36 @@
     padding: 10px 30px;
     border-radius: 4px;
     
-
-    &:hover {
-        background-color: rgba(133, 98, 230, 0.445);
-    }
-    @include regular {
-        &-color {
-            background-color: var(--colorPrimary);
-            &:hover {
-                background-color: rgb(144, 49, 252);
-            }
+    &-color {
+        background-color: var(--colorPrimary);
+        &:hover {
+            background-color: rgb(144, 49, 252);
         }
     }
-    @include large {
-        &-color {
-            background-color: var(--colorPrimary);
-            &:hover {
-                background-color: rgb(144, 49, 252);
+
+    &-link {
+
+        &:hover {
+            background-color: var(--colorPrimaryBack);
+        }
+
+        @include small {
+            background: none;
+        }
+        @include regular {
+            &.button-color {
+                background-color: var(--colorPrimary);
+                &:hover {
+                    background-color: rgb(144, 49, 252);
+                }
+            }
+        }
+        @include large {
+            &.button-color {
+                background-color: var(--colorPrimary);
+                &:hover {
+                    background-color: rgb(144, 49, 252);
+                }
             }
         }
     }

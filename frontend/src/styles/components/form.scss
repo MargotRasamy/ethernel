@@ -1,27 +1,36 @@
 .form {
     padding: var(--spaceL);
-    background-color: rgba(41, 32, 95, 0.541);
+    background-color: rgba(34, 25, 77, 0.438);
     border-radius: var(--borderRadiusMedium);
     width: 100%;
     margin: var(--spaceM);
+
+    // background-color:#18073677;
+    // ;background-image:  
+    //             radial-gradient(at 44% 19%, rgba(162, 123, 234, 0.4) 0, transparent 57%),  
+    //             radial-gradient(at 20% 88%, rgba(147, 116, 219, 0.4) 0, transparent 56%);
 }
 
 .input {
+    
     position: relative;
     height: fit-content;
     margin:var(--spaceM) 0;
       //input
       & input {
+
           border-radius: var(--borderRadiusSmall);
           box-sizing: border-box;
           border: none;
-          box-shadow: var(--boxShadowPrimary);
+          
           height: 40px;
           width: 100%;
           padding-left: var(--spaceM);
           padding-right: var(--spaceL);
           font-size: var(--fontSizeMain);
-         
+        //   box-shadow: var(--boxShadowPrimary);
+          color: white;
+          background-color: var(--colorPrimaryBack);
       }
   
       & input:focus {
@@ -52,4 +61,17 @@
           border: none;
       }
   
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--colorPrimary50);
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--colorPrimary50);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--colorPrimary50);
   }
