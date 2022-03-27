@@ -1,6 +1,4 @@
-# Basic Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+# Smart contract for transactions
 
 Try running some of the following tasks:
 
@@ -12,4 +10,17 @@ npx hardhat test
 npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
+```
+
+Create a .env file with these properties :
+
+```
+ACCOUNT_PRIVATE_KEY=
+RINKEDBY_RPC_URL=
+```
+
+To deploy, run:
+
+```shell
+npx hardhat run scripts/deploy.js
 ```
