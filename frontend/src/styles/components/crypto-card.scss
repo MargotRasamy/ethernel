@@ -6,15 +6,16 @@
     height: 200px;
     width: 340px;
     border-radius: var(--spaceS);
-    background-color: aliceblue;
+    // background-color: aliceblue;
+    background-color:#d699ff;
     background-image:  
-        radial-gradient(at 34% 12%, hsla(270,78%,68%,1) 0, transparent 50%),  
-        radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0, transparent 50%),  
-        radial-gradient(at 0% 50%, hsla(355,85%,93%,1) 0, transparent 50%),  
-        radial-gradient(at 80% 52%, hsla(340,100%,76%,1) 0, transparent 50%),  
-        radial-gradient(at 0% 100%, hsla(328,17%,43%,1) 0, transparent 50%),  
-        radial-gradient(at 80% 100%, hsla(242,82%,63%,1) 0, transparent 50%),  
-        radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0, transparent 50%);
+radial-gradient(at 72% 91%, hsla(255,70%,77%,1) 0, transparent 54%),  
+radial-gradient(at 55% 78%, hsla(215,81%,66%,1) 0, transparent 54%),  
+radial-gradient(at 21% 62%, hsla(316,81%,66%,1) 0, transparent 58%),  
+radial-gradient(at 34% 23%, hsla(167,77%,75%,1) 0, transparent 47%),  
+radial-gradient(at 93% 12%, hsla(288,96%,61%,1) 0, transparent 45%),  
+radial-gradient(at 90% 19%, hsla(349,66%,76%,1) 0, transparent 48%),  
+radial-gradient(at 53% 69%, hsla(229,72%,68%,1) 0, transparent 50%);
     backdrop-filter: blur(10px);
     color:var(--colorMainBlack);
     h5 { 

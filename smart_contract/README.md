@@ -24,3 +24,5 @@ To deploy, run:
 ```shell
 npx hardhat run scripts/deploy.js
 ```
+
+Après avoir déployé, on obtient l'adresse du contrat et l'abi dans artifacs/contracts/[nom_contrat].json. On copie le contenu de ce fichier et on 
