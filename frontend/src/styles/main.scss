@@ -32,6 +32,11 @@ html {
   background-image: url("../assets/backgrounds/cyber.jpg");
 }
 
+.text-clip {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 button {
     background: none;
     text-decoration: none;

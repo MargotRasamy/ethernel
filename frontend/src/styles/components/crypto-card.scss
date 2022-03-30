@@ -5,6 +5,16 @@
     padding: var(--spaceM);
     height: 200px;
     width: 340px;
+
+    // @include mobile {
+    //     height: 200px;
+    //     width: 340px;
+    // }
+    @include mobile {
+        height: 47vw;
+        width: 80vw;
+    }
+
     border-radius: var(--spaceS);
     // background-color: aliceblue;
     background-color:#d699ff;

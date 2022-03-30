@@ -12,29 +12,7 @@
 
     &-link {
 
-        &:hover {
-            background-color: var(--colorPrimaryBack);
-        }
-
-        @include small {
-            background: none;
-        }
-        @include regular {
-            &.button-color {
-                background-color: var(--colorPrimary);
-                &:hover {
-                    background-color: rgb(144, 49, 252);
-                }
-            }
-        }
-        @include large {
-            &.button-color {
-                background-color: var(--colorPrimary);
-                &:hover {
-                    background-color: rgb(144, 49, 252);
-                }
-            }
-        }
+        
     }
 
     // Simple buttons

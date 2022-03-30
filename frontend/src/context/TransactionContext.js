@@ -26,33 +26,61 @@ const getEthereumContract = () => {
 
 
 export const TransactionProvider = ({ children }) => {
+    const [connectedAccounts, setConnectedAccounts] = useState([])
+    // const [isConnected, setConnection] = useState(false)
 
-    const [connectedAccount, setConnectedAccount] = useState('')
-
-    const fetchConnectedAccounts = async () => {
-        return await ethereum.request({ method: 'eth_accounts' });
-    }
+    
 
     const connectWallet = async () => {
         try {
             checkWalletInstalled();
-            const allAccountsList = await ethereum.request({ method: 'eth_requestAccounts' });
-            setConnectedAccount(allAccountsList[0]);
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            setConnectedAccounts(accounts);  
+            // setConnection(!!connectedAccounts.length);
+            console.log(accounts)
         } catch (error) {
-            console.log(error);
+            console.log('No ethereum object.');
+            // throw new Error('No ethereum object.')
         }
     }
+
+    // const disconnectWallet = async function () {
+    //     await window.ethereum.request({
+    //         method: "wallet_requestPermissions",
+    //         params: [{
+    //             eth_accounts: {}
+    //         }]
+    //     });
+    // }
+
+    // const checkWalletConnected = () => {
+    //     setConnection(!!connectedAccounts.length);
+    // }
 
     const checkWalletInstalled = () => {
         if (!ethereum) { alert('Please install metamask') };
     }
 
-    // useEffect(() => {
-    //     checkWalletInstalled();
-    // }, [])
+    const checkConnectionOnReload = async () => {
+        try {
+            checkWalletInstalled();
+            // const accounts = await ethereum.request({ method: 'eth_accounts' })
+            // setConnectedAccounts(accounts)
+            //getAllTransactions
+            
+            
+        } catch (error) {
+            console.log('No ethereum object.');
+            // throw new Error('No ethereum object.')
+        }
+    }
+
+    useEffect(() => {
+        checkConnectionOnReload()
+    }, [])
 
     return (
-        <TransactionContext.Provider value={{connectWallet}}>
+        <TransactionContext.Provider value={{connectWallet, connectedAccounts}}>
             { children }
         </TransactionContext.Provider> 
     )

@@ -3,11 +3,11 @@ import CryptoCard from "../CryptoCard";
 import Form from "../Form";
 
 import { TransactionContext } from "../../context/TransactionContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 const Hero = () => {
 
-     const { connectWallet } = useContext(TransactionContext)
+    const { connectWallet } = useContext(TransactionContext);
 
     // useEffect(() => {
     //   console.log(context)
@@ -15,9 +15,9 @@ const Hero = () => {
     return (
       <div className="hero">
         <div className="introduction">
-          <h1>Ethernel</h1>
-          <h2>Send Ethers to anyone in the world at anytime !</h2>
-          <ButtonSimple color="color" onClickEvent={connectWallet} type="button" text="Send Ethers" size="lg" />
+          <h1 className="main-title">Ethernel</h1>
+          <h2 className="main-description">Send Ethers to anyone in the world at anytime !</h2>
+          <ButtonSimple wrapperClass="cta-button" color="color" onClickEvent={connectWallet} type="button" text="Send Ethers" size="lg" />
         </div>
         <div className="crypto-form">
           <CryptoCard />
