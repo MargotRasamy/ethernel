@@ -21,15 +21,28 @@ const getEthereumContract = () => {
         transactionContract
     })
 
-    
+    return transactionContract;
 }
 
 
 export const TransactionProvider = ({ children }) => {
     const [connectedAccounts, setConnectedAccounts] = useState([])
-    // const [isConnected, setConnection] = useState(false)
+    const [formData, setFormData] = useState({
+        addressTo: '',
+        amount: '',
+        gif: '',
+        msg: ''
+    })
+    const [isLoadingTransaction, setLoadingTransaction] = useState(false)
 
-    
+    const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'))
+
+    const handleChange = (e) => {
+        setFormData((previousState) => ({
+          ...previousState, 
+          [e.target.name]: e.target.value
+        }))
+    }
 
     const connectWallet = async () => {
         try {
@@ -61,14 +74,50 @@ export const TransactionProvider = ({ children }) => {
         if (!ethereum) { alert('Please install metamask') };
     }
 
-    const checkConnectionOnReload = async () => {
+    const sendTransaction = async () => {
         try {
             checkWalletInstalled();
+            const transactionContract = await getEthereumContract();
+
+            // parse the amount into gwei
+            const parsedAmount = ethers.utils.parseEther(formData.amount);
+
+            // This creates a transaction you can see on etherscan rinkedby 
+            await ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [{
+                    from: connectedAccounts[0],
+                    to: formData.addressTo,
+                    // parse the gwei amount into hex
+                    value: parsedAmount._hex, 
+                    // Gas has to be in hexadecimal format. 
+                    //To know the value, turn it into decimal to have gwei (10^8 gwei = 1 ether). 
+                    //Here we chose in hexa : 0x5208 (21000 gwei)
+                    // Gas is the price paid for validators. 
+                    // It can be chosen by default if not specified
+                    gas: '0x5208'
+                }],
+              });
+            setLoadingTransaction(true)
+            console.log('Loading :' + isLoadingTransaction)
+            const transaction = await transactionContract.addToBlockchain(formData.addressTo, formData.amount, formData.msg, formData.gif);
+            setLoadingTransaction(!!transaction.hash)
+            console.log('Success :' + isLoadingTransaction)
+
+            const transactionsCount = await transactionContract.getTransactionCount()
+            setTransactionCount(transactionsCount.toNumber())
+        } catch (error) {
+            console.log('No ethereum object.');
+            // throw new Error('No ethereum object.')
+        }
+    }
+
+    const checkConnectionOnReload = async () => {
+        try {
+            if (!ethereum) { alert('Please install metamask') };
             // const accounts = await ethereum.request({ method: 'eth_accounts' })
             // setConnectedAccounts(accounts)
             //getAllTransactions
-            
-            
         } catch (error) {
             console.log('No ethereum object.');
             // throw new Error('No ethereum object.')
@@ -80,7 +129,7 @@ export const TransactionProvider = ({ children }) => {
     }, [])
 
     return (
-        <TransactionContext.Provider value={{connectWallet, connectedAccounts}}>
+        <TransactionContext.Provider value={{connectWallet, connectedAccounts, handleChange, formData, sendTransaction}}>
             { children }
         </TransactionContext.Provider> 
     )

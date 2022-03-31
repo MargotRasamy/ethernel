@@ -16,6 +16,8 @@ contract Transactions {
 
     TransferStruct[] transactions;
 
+    // Every function call on the contract creates a transaction 
+
     function addToBlockchain(address payable receiver, uint amount, string memory message, string memory keyword) public {
         transactionCount+= 1;
         transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword));
