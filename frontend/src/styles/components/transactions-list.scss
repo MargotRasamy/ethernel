@@ -1,11 +1,52 @@
 .transactions-list {
+    padding: 2rem 0px;  
     display: grid;
     gap: var(--spaceM);
     grid-template-columns: repeat(4, 1fr);
+
+    @include regular {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+        grid-template-columns: none;
+    }
+    
     .transaction {
-        overflow: hidden;
-        padding: var(--spaceS);
-        background-color: rgba(51, 27, 92, 0.686);
+        box-shadow: var(--boxShadow);
+        display: flex;
+        flex-direction: column;
         border-radius: var(--borderRadiusSmall);
+        overflow: hidden;
+        
+        .informations {
+            overflow: hidden;
+            padding: var(--spaceS);
+            background-color: rgba(209, 225, 255, 0.867);
+            color: black;
+            // border-radius: var(--borderRadiusSmall);
+            position: relative;
+            
+            .information-text {
+                display: flex;
+                justify-content: space-between;
+                .label {
+                    text-align: left;
+                }
+                .value {
+                    text-align: right;
+                    flex: 1;
+                }
+            }
+        }
+        
+        .message {
+            padding: var(--spaceS);
+            background-color: rgba(255, 255, 255, 0.137);
+            color: var(--colorWhite);
+        }
+        
     }
 }

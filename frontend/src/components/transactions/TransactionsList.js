@@ -7,13 +7,13 @@ const TransactionsList = () => {
 
     useEffect(async () => {
         getTransactionsList()
-        getTransactionsCount()
+        // getTransactionsCount()
     }, []);
 
     return (
         <div className="transactions-list">
             
-            { (!!transactionsList && transactionsList.length) ?
+            { (!!transactionsList && transactionsList.length && Array.isArray(transactionsList)) ?
             
             transactionsList.map((transaction, index) => {
                 return (

@@ -25,8 +25,8 @@ const getEthereumContract = () => {
 
 export const TransactionProvider = ({ children }) => {
     const [isLoadingTransaction, setLoadingTransaction] = useState(false)
-    const [transactionsList, setTransactionsList] = useState(JSON.parse(localStorage.getItem('transactionsList')))
-    const [transactionCount, setTransactionCount] = useState(JSON.parse(localStorage.getItem('transactionCount')))
+    const [transactionsList, setTransactionsList] = useState(localStorage.getItem('transactionsList') ? JSON.parse(localStorage.getItem('transactionsList')) :[])
+    const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionsCount') ? JSON.parse(localStorage.getItem('transactionsCount')) :[])
     const [connectedAccounts, setConnectedAccounts] = useState([])
     const [formData, setFormData] = useState({
         addressTo: '',
@@ -123,6 +123,7 @@ export const TransactionProvider = ({ children }) => {
 
         const formattedTransactions = structuredTransactions(allTransactions);
 
+        console.log(formattedTransactions);
         setTransactionsList(formattedTransactions);
         localStorage.setItem('transactionsList', JSON.stringify(formattedTransactions));
 

@@ -16,7 +16,7 @@
         // background-color: rgba(42, 32, 95, 0.849);
         border-radius: var(--borderRadiusSmall);
         
-        padding: var(--spaceM);
+        padding: var(--spaceM) 0;
         font-size: 20px;
         display: flex;
         justify-content: space-between;
@@ -31,6 +31,7 @@
             }
     
             @include small {
+                margin: 0;
                 text-align: left;
                 background: none;
             }
@@ -52,6 +53,7 @@
             }
         }
         @include small {
+            padding: var(--spaceM);
             position: absolute;
             z-index:1;
             top: 65px;
