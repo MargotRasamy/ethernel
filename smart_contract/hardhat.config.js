@@ -23,11 +23,14 @@ require("@nomiclabs/hardhat-waffle");
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    rinkedby: {
+    rinkeby: {
       // Url fournit par Infura ou Alchemy pour le déploiement
       url: process.env.RINKEDBY_RPC_URL,
       // A trouver sur metamask, account details (exporter la clé privée)
       accounts: [process.env.ACCOUNT_PRIVATE_KEY]
-    }
+    },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY
   }
 };
