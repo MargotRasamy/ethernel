@@ -79,15 +79,55 @@ export const TransactionProvider = ({ children }) => {
         if (!ethereum) { alert('Please install metamask') };
     }
 
+    const structuredTransactions = (transactions) => {
+        
+        return transactions.map((transaction) => {
+            return {
+                sender: transaction.sender,
+                receiver: transaction.receiver,
+                amount: parseInt(transaction.amount._hex) / (10 ** 18),
+                date: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
+                msg: transaction.message,
+                gif: transaction.keyword
+            }
+        })
+    }
+
+    const mock = () => {
+        return [
+            {
+                sender: "me",
+                receiver: "you",
+                amount: "0.05",
+                date: new Date().toLocaleString(),
+                msg: "thank you",
+                gif: "cool"
+            },
+            {
+                sender: "me",
+                receiver: "you",
+                amount: "0.05",
+                date: new Date().toLocaleString(),
+                msg: "thank you",
+                gif: "cool"
+            },
+            
+        ]
+    }
+
     const getTransactionsList = async () => {
      
             // checkWalletInstalled();
             const transactionContract = await getEthereumContract();
-            return await transactionContract.getAllTransactions();
-            // const allTransactions = await transactionContract.getAllTransactions()
             
-            // // setTransactionsList(allTransactions);
-            // return allTransactions;
+            const allTransactions = await transactionContract.getAllTransactions();
+            
+            // const structured = structuredTransactions(allTransactions);
+            
+            // setTransactionsList(structured);
+            console.log(structuredTransactions(allTransactions))
+           
+            return structuredTransactions(allTransactions);
       
     }
 
@@ -150,7 +190,6 @@ export const TransactionProvider = ({ children }) => {
 
     useEffect(() => {
         checkConnectionOnReload()
-        getEthereumContract()
     }, [])
 
     return (

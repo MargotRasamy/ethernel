@@ -1,8 +1,9 @@
 .transactions-list {
     display: grid;
     gap: var(--spaceM);
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 1fr);
     .transaction {
+        overflow: hidden;
         padding: var(--spaceS);
         background-color: rgba(51, 27, 92, 0.686);
         border-radius: var(--borderRadiusSmall);
