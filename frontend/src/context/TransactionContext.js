@@ -20,12 +20,13 @@ const getEthereumContract = () => {
         signer,
         transactionContract
     })
-
     return transactionContract;
 }
 
-
 export const TransactionProvider = ({ children }) => {
+    const [isLoadingTransaction, setLoadingTransaction] = useState(false)
+    const [transactionsList, setTransactionsList] = useState(JSON.parse(localStorage.getItem('transactionsList')))
+    const [transactionCount, setTransactionCount] = useState(JSON.parse(localStorage.getItem('transactionCount')))
     const [connectedAccounts, setConnectedAccounts] = useState([])
     const [formData, setFormData] = useState({
         addressTo: '',
@@ -33,12 +34,7 @@ export const TransactionProvider = ({ children }) => {
         gif: '',
         msg: ''
     })
-    const [isLoadingTransaction, setLoadingTransaction] = useState(false)
-
-    // const [transactionContract, setTransactionContract] = useState({})
-    const [transactionsList, setTransactionsList] = useState([])
-
-    const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'))
+    
 
     const handleChange = (e) => {
         setFormData((previousState) => ({
@@ -46,8 +42,6 @@ export const TransactionProvider = ({ children }) => {
           [e.target.name]: e.target.value
         }))
     }
-
-
 
     const connectWallet = async () => {
         try {
@@ -79,8 +73,7 @@ export const TransactionProvider = ({ children }) => {
         if (!ethereum) { alert('Please install metamask') };
     }
 
-    const structuredTransactions = (transactions) => {
-        
+    const structuredTransactions = (transactions) => {   
         return transactions.map((transaction) => {
             return {
                 sender: transaction.sender,
@@ -115,20 +108,25 @@ export const TransactionProvider = ({ children }) => {
         ]
     }
 
+    const getTransactionsCount = async () => {
+        const transactionContract = await getEthereumContract();
+        const transactionsCount = await transactionContract.getTransactionCount();
+        const formattedTransactionsCount = transactionsCount.toNumber();
+        setTransactionCount(formattedTransactionsCount);
+        localStorage.setItem('transactionsCount', JSON.stringify(formattedTransactionsCount));
+    }
+
     const getTransactionsList = async () => {
-     
-            // checkWalletInstalled();
-            const transactionContract = await getEthereumContract();
-            
-            const allTransactions = await transactionContract.getAllTransactions();
-            
-            // const structured = structuredTransactions(allTransactions);
-            
-            // setTransactionsList(structured);
-            console.log(structuredTransactions(allTransactions))
-           
-            return structuredTransactions(allTransactions);
-      
+        const transactionContract = await getEthereumContract();
+
+        const allTransactions = await transactionContract.getAllTransactions();
+
+        const formattedTransactions = structuredTransactions(allTransactions);
+
+        setTransactionsList(formattedTransactions);
+        localStorage.setItem('transactionsList', JSON.stringify(formattedTransactions));
+
+        return formattedTransactions;
     }
 
     const sendTransaction = async () => {
@@ -163,11 +161,6 @@ export const TransactionProvider = ({ children }) => {
             await transaction.wait();
             setLoadingTransaction(false)
             console.log(`Success ${transaction.hash}`)
-
-
-            const transactionsCount = await transactionContract.getTransactionCount()
-            console.log("yes" + transactionsCount);
-            setTransactionCount(transactionsCount.toNumber())
         } catch (error) {
             console.log(error);
             console.log('No ethereum object.');
@@ -193,7 +186,7 @@ export const TransactionProvider = ({ children }) => {
     }, [])
 
     return (
-        <TransactionContext.Provider value={{connectWallet, connectedAccounts, handleChange, formData, sendTransaction, getTransactionsList, transactionsList}}>
+        <TransactionContext.Provider value={{connectWallet, connectedAccounts, handleChange, formData, sendTransaction, getTransactionsList, transactionsList, getTransactionsCount, transactionCount}}>
             { children }
         </TransactionContext.Provider> 
     )

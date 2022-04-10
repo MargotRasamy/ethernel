@@ -20,6 +20,7 @@
         font-size: 20px;
         display: flex;
         justify-content: space-between;
+        
         .nav-item {
             text-decoration: none;
             color: inherit;
@@ -64,6 +65,24 @@
                 radial-gradient(at 75% 8%, hsla(156,82%,71%,0.4) 0, transparent 51%),  
                 radial-gradient(at 89% 76%, hsla(260,60%,64%,0.4) 0, transparent 41%),  
                 radial-gradient(at 20% 88%, hsla(212,82%,76%,0.4) 0, transparent 56%);
+        }
+
+        @include regular {
+            .nav-item:last-child {
+                margin: 0 0px 0px 6px;
+            }
+            .nav-item:first-child {
+                margin: 0 6px 0px 0px;
+            }
+        }
+
+        @include large {
+            .nav-item:last-child {
+                margin: 0 0px 0px 6px;
+            }
+            .nav-item:first-child {
+                margin: 0 6px 0px 0px;
+            }
         }
         
         &.closed {
