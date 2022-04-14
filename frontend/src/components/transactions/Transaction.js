@@ -21,6 +21,9 @@ const Transaction = (props) => {
                   <p className="value text-clip">{ date }</p>
                 </div>
             </div>
+            <div className="image-container">
+                {/* <img s> */}
+            </div>
             <div className="message">
                 <p className="word-break"><strong>Message :</strong> { msg } </p>
             </div>

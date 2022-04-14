@@ -50,8 +50,8 @@ const Header = () => {
                     <SimpleLink color="blue" wrapperClass="ethernel-font logo" toPath="/" text="Ethernel"/>
                     <BurgerMenu onClickAction={ ()=> { setMenuState(!open) } } />
                     <nav className={ !open ? 'closed' : '' }>
-                        <ButtonLink wrapperClass="nav-item" color="blue" toPath="/market" text="Market"/>
-                        <ButtonLink wrapperClass="nav-item" color="blue" toPath="/exchange" text="Exchange"/>
+                        {/* <ButtonLink wrapperClass="nav-item" color="blue" toPath="/market" text="Market"/> */}
+                        <ButtonLink wrapperClass="nav-item" color="blue" toPath="/NFT" text="NFT collection"/>
                         <ButtonLink wrapperClass="nav-item" color="blue" toPath="/transactions" text="Transactions"/>
                         <ButtonSimple onClickEvent={toConnect()} wrapperClass={"nav-item" + (isConnected() ? ' text-clip text-clip-size ' : '')} color="color"  text={isConnected() ? connectedAccounts[0] : 'Connect'} />
                     </nav>

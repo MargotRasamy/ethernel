@@ -3,7 +3,7 @@ import { useEffect, useContext, useState } from 'react';
 import { TransactionContext } from "../../context/TransactionContext";
 
 const TransactionsList = () => {
-    const { getTransactionsList, transactionsList, getTransactionsCount, transactionCount } = useContext(TransactionContext)
+    const { getTransactionsList, transactionsList, getTransactionsCount, transactionCount, contract } = useContext(TransactionContext)
 
     useEffect(async () => {
         getTransactionsList()

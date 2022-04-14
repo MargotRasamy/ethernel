@@ -56,19 +56,6 @@ export const TransactionProvider = ({ children }) => {
         }
     }
 
-    // const disconnectWallet = async function () {
-    //     await window.ethereum.request({
-    //         method: "wallet_requestPermissions",
-    //         params: [{
-    //             eth_accounts: {}
-    //         }]
-    //     });
-    // }
-
-    // const checkWalletConnected = () => {
-    //     setConnection(!!connectedAccounts.length);
-    // }
-
     const checkWalletInstalled = () => {
         if (!ethereum) { alert('Please install metamask') };
     }
@@ -84,28 +71,6 @@ export const TransactionProvider = ({ children }) => {
                 gif: transaction.keyword
             }
         })
-    }
-
-    const mock = () => {
-        return [
-            {
-                sender: "me",
-                receiver: "you",
-                amount: "0.05",
-                date: new Date().toLocaleString(),
-                msg: "thank you",
-                gif: "cool"
-            },
-            {
-                sender: "me",
-                receiver: "you",
-                amount: "0.05",
-                date: new Date().toLocaleString(),
-                msg: "thank you",
-                gif: "cool"
-            },
-            
-        ]
     }
 
     const getTransactionsCount = async () => {
