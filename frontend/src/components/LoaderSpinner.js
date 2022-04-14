@@ -1,6 +1,6 @@
-import '../assets/styles/components/loader-spinner.scss';
+import '../styles/components/loader-spinner.scss';
 
-function LoaderSpinner() {
+const LoaderSpinner = () => {
   return (
     <div className="loader-spinner"></div> 
   );

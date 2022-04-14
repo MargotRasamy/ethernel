@@ -1,28 +1,41 @@
+import TransactionInformation from './TransactionInformation'
+
 const Transaction = (props) => {
 
-    const { from, to, amount, date, msg, gif, wrapperClass } = props;
+    const { from, to, amount, date, msg, image, wrapperClass } = props;
+
+    const transactionInfos = [
+      {
+        label: 'From :',
+        value: from
+      },
+      {
+        label: 'To :',
+        value: to
+      },
+      {
+        label: 'Amount :',
+        value: amount
+      },
+      {
+        label: 'Date :',
+        value: date
+      }
+    ]
+
     return (
-        <div className={"transaction " + wrapperClass}>
+        <div className={"transaction " + wrapperClass} 
+        // style={{backgroundImage: `url(${image})`}}
+        >
             <div className="informations">
-                <div className="information-text">
-                  <p className="label"><strong>From :</strong></p>
-                  <p className="value text-clip">{ from }</p>
-                </div>
-                <div className="information-text">
-                  <p className="label"><strong>To :</strong></p>
-                  <p className="value text-clip">{ to }</p>
-                </div>
-                <div className="information-text">
-                  <p className="label"><strong>Amount :</strong></p>
-                  <p className="value text-clip">{ amount }</p>
-                </div>
-                <div className="information-text">
-                  <p className="label"><strong>Date :</strong></p>
-                  <p className="value text-clip">{ date }</p>
-                </div>
+                {
+                  transactionInfos.map((transaction, index) => {
+                    return <TransactionInformation key={index} className="transaction-information" label={transaction.label} value={transaction.value} />
+                  })
+                }
             </div>
             <div className="image-container">
-                {/* <img s> */}
+                <img src={image} alt="transaction-image" />
             </div>
             <div className="message">
                 <p className="word-break"><strong>Message :</strong> { msg } </p>

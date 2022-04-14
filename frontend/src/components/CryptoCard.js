@@ -12,9 +12,10 @@ const CryptoCard = () => {
 
     useEffect(() => {
         VanillaTilt.init(document.querySelector(".crypto-card"), {
-            max: 25,
-            speed: 350,
+            max: 50,
+            speed: 300,
             glare: true,
+            easing: "cubic-bezier(.03,.98,.52,.99)",
             "max-glare": 0.2
         });
     }, []);
