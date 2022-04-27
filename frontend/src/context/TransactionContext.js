@@ -35,7 +35,6 @@ export const TransactionProvider = ({ children }) => {
         msg: ''
     })
     
-
     const handleChange = (e) => {
         setFormData((previousState) => ({
           ...previousState, 
@@ -146,6 +145,8 @@ export const TransactionProvider = ({ children }) => {
             // throw new Error('No ethereum object.')
         }
     }
+
+    
 
     useEffect(() => {
         checkConnectionOnReload()

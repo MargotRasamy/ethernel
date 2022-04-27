@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="introduction">
           <h1 className="main-title">Ethernel</h1>
           <h2 className="main-description">Send Ethers to anyone in the world at anytime !</h2>
-          <ButtonSimple wrapperClass="cta-button" color="color" onClickEvent={connectWallet} type="button" text={isConnected() ? connectedAccounts[0] : 'Connect wallet'} size="lg" />
+          <ButtonSimple wrapperClass="cta-button text-clip" color="color" onClickEvent={connectWallet} type="button" text={isConnected() ? connectedAccounts[0] : 'Connect wallet'} size="lg" />
         </div>
         <div className="crypto-form">
           <CryptoCard />

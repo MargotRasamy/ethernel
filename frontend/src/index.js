@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { TransactionProvider } from './context/TransactionContext';
+import { Provider } from 'react-redux';
+import { store } from '../src/store/store';
 
 ReactDOM.render(
-  <TransactionProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode> 
-  </TransactionProvider>
+  <Provider store={store}>
+    <TransactionProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode> 
+    </TransactionProvider> 
+  </Provider>
+  
   ,
   document.getElementById('root')
 );

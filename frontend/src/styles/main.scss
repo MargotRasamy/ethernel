@@ -18,7 +18,8 @@
 @import 'components/form.scss';
 @import 'components/loader-spinner.scss';
 @import 'components/transactions-list.scss';
-
+@import 'components/overlay.scss';
+@import 'components/alert.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Aldrich');
 @import url('https://fonts.googleapis.com/css?family=Michroma');
@@ -62,6 +63,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
+  position: relative;
   margin:0;
   padding: 0;
   background: linear-gradient(217deg, rgba(88, 1, 160, 0.521), rgba(26, 26, 26, 0.1) 70.71%),
@@ -96,6 +98,7 @@ h2 {
   font-family: 'Assistant';
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   @media screen and (max-width: 768px) {
     margin: 0 20px;
